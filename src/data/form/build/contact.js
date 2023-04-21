@@ -6,19 +6,17 @@ const contact = [
 		className: "email",
 		name: "email",
 		placeholder: "Email Address",
-		required: "required",
-		key: 1
+		key: 9
 	},
 	{
 		label: "Phone",
-		type: "phone",
+		type: "tel",
 		id: "user-input-phone",
 		className: "phone",
 		name: "phone",
-		placeholder: "+977-000-000-0000",
-		required: "required",
-		pattern: "[+]{1}[9]{1}[9]{7}[9]{7}-[0-9]{3}-[0-9]{3}-[0-9]{4}",
-		key: 2
+		placeholder: "10-digits",
+		// pattern: "[+]{1}[9]{1}[7]{1}[7]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}",
+		key: 10
 	}
 ];
 

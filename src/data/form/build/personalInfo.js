@@ -6,16 +6,14 @@ const personalInfo = [
 		className: "full-name",
 		name: "fullName",
 		placeholder: "Full Name",
-		required: "required",
 		key: 1
 	},
 	{
 		label: "Gender",
 		type: "radio",
-		id: "user-input-gender",
+		// id: "user-input-gender",
 		className: "gender",
 		name: "gender",
-		required: "required",
 		values: [ "male", "female", "others" ],
 		key: 2
 	},
@@ -25,36 +23,33 @@ const personalInfo = [
 		id: "user-input-dob",
 		className: "date-of-birth",
 		name: "dob",
-		required: "required",
 		key: 3
 	},
 	{
-		label: "Fathers Name",
+		label: "Father's Name",
 		type: "text",
 		id: "user-input-father",
 		className: "father",
 		name: "father",
-		placeholder: "Fathers Name",
-		required: "required",
+		placeholder: "Father's Name",
 		key: 4
 	},
 	{
-		label: "Mothers Name",
+		label: "Mother's Name",
 		type: "text",
 		id: "user-input-mother",
 		className: "mother",
 		name: "mother",
-		placeholder: "Mothers Name",
-		required: "required",
+		placeholder: "Mother's Name",
 		key: 5
 	},
 	{
-		label: "Grand Fathers Name(Optional)",
+		label: "Grand Father's Name(Optional)",
 		type: "text",
 		id: "user-input-grand-father",
 		className: "geand-father",
 		name: "grandFather",
-		placeholder: "Grand Fathers Name",
+		placeholder: "Grand Father's Name",
 		key: 6
 	},
 	{
@@ -73,7 +68,6 @@ const personalInfo = [
 		className: "occupation",
 		name: "occupation",
 		placeholder: "Occupation",
-		required: "required",
 		key: 8
 	},
 
