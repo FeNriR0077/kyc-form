@@ -1,12 +1,14 @@
-// import PropTypes from 'prop-types';
+// import PropTypes from "prop-types";
 
 const FormInput = ({
+	label,
 	type,
 	id,
-	required,
 	values,
-	onChange,
-	pattern,
+	name,
+	max,
+	register,
+	errors,
 	...rest
 }) => {
 	const date = new Date();
@@ -19,40 +21,83 @@ const FormInput = ({
 
 	if (type === "radio") {
 		return (
-			<div className="flex gap-12 radio-options">
-				{values.map((value, index) => {
-					return (
-						<div key={index}>
-							<label htmlFor={id + "-" + value} className="mr-1 capitalize">
-								{value}
-							</label>
+			<>
+				<label htmlFor={id}>{label}:</label>
 
-							<input
-								type={type}
-								id={id + "-" + value}
-								value={value}
-								required={required}
-								onChange={onChange}
-								{...rest}
-							/>
-						</div>
-					);
-				})}
-			</div>
+				<div className="flex gap-12 radio-options">
+					{values.map((value) => {
+						return (
+							<div key={value}>
+								<label htmlFor={id + "-" + value} className="mr-1 capitalize">
+									{value}
+								</label>
+
+								<input
+									type={type}
+									id={id}
+									name={name}
+									value={value}
+									{...register(name)}
+									{...rest}
+								/>
+							</div>
+						);
+					})}
+				</div>
+				<p className="mt-6 text-rose-600">{errors[`${name}`]?.message}</p>
+			</>
 		);
-	} else {
+	}
+
+	else if (type === "select") {
 		return (
-			<input
-				type={type}
-				id={id}
-				max={type === "date" ? currentDate : ""}
-				required={required ? "required" : ""}
-				onChange={onChange}
-				pattern={pattern}
-				{...rest}
-			/>
+			<>
+				<label htmlFor={id}>{label}:</label>
+
+				<select id={id} name={name} {...rest} {...register(name)}>
+					{values.map((value) => {
+						return (
+							<option key={value} value={value}>
+								{value}
+							</option>
+						);
+					})}
+				</select>
+
+				<p className="text-rose-600">{errors[`${name}`]?.message}</p>
+			</>
+		);
+	}
+
+	else {
+		return (
+			<>
+				<label htmlFor={id}>{label}:</label>
+
+				<input
+					type={type}
+					id={id}
+					name={name}
+					max={type === "date" ? currentDate : max}
+					{...register(name)}
+					{...rest}
+				/>
+
+				<p className="text-rose-700">{errors[`${name}`]?.message}</p>
+			</>
 		);
 	}
 };
+
+// FormInput.propTypes = {
+// 	label: PropTypes.string(),
+// 	type: PropTypes.string(),
+// 	id: PropTypes.string(),
+// 	values: PropTypes.arrayOf(PropTypes.string),
+// 	name: PropTypes.string(),
+// 	max: PropTypes.string(),
+// 	register: PropTypes.func(),
+// 	errors: PropTypes.object(),
+// };
 
 export default FormInput;
