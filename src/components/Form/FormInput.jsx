@@ -1,5 +1,3 @@
-// import PropTypes from "prop-types";
-
 const FormInput = ({
 	label,
 	type,
@@ -88,16 +86,5 @@ const FormInput = ({
 		);
 	}
 };
-
-// FormInput.propTypes = {
-// 	label: PropTypes.string(),
-// 	type: PropTypes.string(),
-// 	id: PropTypes.string(),
-// 	values: PropTypes.arrayOf(PropTypes.string),
-// 	name: PropTypes.string(),
-// 	max: PropTypes.string(),
-// 	register: PropTypes.func(),
-// 	errors: PropTypes.object(),
-// };
 
 export default FormInput;

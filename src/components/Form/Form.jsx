@@ -1,8 +1,8 @@
-import { useForm } from "react-hook-form";
+import Profile from "@/components/Form/Profile";
+import Sections from "@/components/Form/Sections";
+import formSchema from "@/components/Validations/form";
 import { address, contact, documents, personalInfo } from "@/data/form";
-import formSchema from "../Validations/form";
-import Sections from "./Sections";
-import Profile from "./Profile";
+import { useForm } from "react-hook-form";
 
 const Form = () => {
 

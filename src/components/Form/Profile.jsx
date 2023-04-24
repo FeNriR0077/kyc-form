@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const Profile = ({ register, errors }) => {
 	const [ image, setImage ] = useState(null);
+	const isImage = !!image;
 
 	const handleProfileChange = (e) => {
 		if(e.target.files){
@@ -21,7 +22,7 @@ const Profile = ({ register, errors }) => {
 					htmlFor="user-input-profile"
 					className="mb-4 border-2 border-black border-dashed rounded-md cursor-pointer min-w-6xl hover:underline"
 				>
-					{image
+					{isImage
 						?
 						<>
 							<Image
@@ -31,10 +32,16 @@ const Profile = ({ register, errors }) => {
 								width={300}
 								height={250}
 							/>
-							<p className="mb-2 text-slate-500">(click again to replace the image)</p>
+							<p className="mb-2 text-slate-500">
+								(click again to replace the image)
+							</p>
 						</>
 						:
-						<p className="p-16">Upload your profile picture</p>
+						<p className="p-16 font-semibold text-slate-500">
+							UPLOAD YOUR PROFILE PICTURE
+							<br/>
+							(face should be clearly visible)
+						</p>
 					}
 
 				</label>
