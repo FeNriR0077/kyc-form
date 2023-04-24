@@ -37,7 +37,7 @@ const address= [
 	},
 	{
 		label: "Post Code",
-		type: "number",
+		type: "text",
 		id: "user-input-post-code",
 		className: "post-code",
 		name: "postCode",

@@ -10,7 +10,7 @@ const documents = [
 	},
 	{
 		label: "Citizenship Number",
-		type: "string",
+		type: "text",
 		id: "user-input-citizinship-number",
 		className: "citizenship-number",
 		name: "citizenshipNumber",

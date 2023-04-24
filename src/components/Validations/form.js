@@ -9,8 +9,12 @@ const formSchema = yup.object().shape({
 		.matches(/^[A-Za-z0-9]*$/, "No special characters allowed")
 		.max(30, "Full Name must be less than 30 characters")
 		.required("Full Name is required"),
-	gender: yup.string().required("Gender is required"),
-	dob: yup.string().required("Date of birth is required"),
+	gender: yup
+		.string()
+		.required("Gender is required"),
+	dob: yup
+		.string()
+		.required("Date of birth is required"),
 	father: yup
 		.string()
 		.matches(/^[A-Za-z0-9]*$/, "No special characters")
@@ -42,7 +46,7 @@ const formSchema = yup.object().shape({
 	phone: yup
 		.string()
 		.max(20, "Phone Number must be less than 15 characters")
-		.matches(/^[0-9]*$/, "Only numbers allowed")
+		.matches(/^[0-9]*$/, "Only numbers are allowed")
 		.required("Phone Number is required"),
 	street: yup
 		.string()
@@ -63,15 +67,19 @@ const formSchema = yup.object().shape({
 	postCode: yup
 		.string("Post Code must be a number")
 		.max(15, "Post Code must be less than 15 characters")
-		.matches(/^[0-9]*$/, "Only numbers allowed")
+		.matches(/^[0-9]*$/, "Only numbers are allowed")
 		.required("Post Code is required"),
-	document: yup.string().required("A document must be selected"),
+	document: yup
+		.string()
+		.required("A document must be selected"),
 	citizenshipNumber: yup
 		.string()
 		.max(20, "Citizenship Number must be less than 20 characters")
-		.matches(/^[0-9]*$/, "Only numbers allowed")
+		.matches(/^[0-9]*$/, "Only numbers are allowed")
 		.required("Citizenship Number is required"),
-	citizenshipIssuedDate: yup.string().required("Issued date is required"),
+	citizenshipIssuedDate: yup
+		.string()
+		.required("Issued date is required"),
 	citizenshipIssuedCity: yup
 		.string()
 		.max(20, "Issued City must be less than 20 characters")
@@ -84,7 +92,8 @@ const formSchema = yup.object().shape({
 		.required(),
 	profile: yup
 		.mixed()
-		.required("Profile image is required")
+		.required()
+		.typeError("Profile image is required")
 });
 
 export default yupResolver(formSchema);
